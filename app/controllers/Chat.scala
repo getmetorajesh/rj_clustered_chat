@@ -22,8 +22,9 @@ class Chat @Inject()(val messagesApi: MessagesApi) extends Controller with I18nS
   }
   
   def chat = Action { implicit request => 
-    
-    Ok{"dsad"}
+    request.session.get(User).map { user =>
+      Ok(views.html.chat(user))  
+    }.getOrElse(Redirect(routes.Chat.index()))
   }
   
   def loginPost = Action { implicit request =>
