@@ -1,0 +1,17 @@
+@(userForm: Form[UserData])(implicit messages: Messages)
+@main("Welcome to Play") {
+
+	@helper.form(action = routes.Application.userPost()) {
+		@helper.inputText(userForm("name"), 'id->"name",'class->"form-control")
+		<dl class="error" id="age_field">
+		    <dt><label for="age">Age:</label></dt>
+		    <dd><input type="text" name="age" id="age" value=""></dd>
+		    <dd class="error">This field is required!</dd>
+		    <dd class="error">Another error</dd>
+		    <dd class="info">Required</dd>
+		    <dd class="info">Another constraint</dd>
+		</dl>
+		<button type="Submit">Submit</button>
+	}
+
+}
