@@ -91,7 +91,7 @@ class Application extends Controller {
    */
    val userPost = Action(parse.form(userForm)) { implicit request => 
      val userData = request.body
-//     val newUser = models.User(userData.name, userData.age)
+  //     val newUser = models.User(userData.name, userData.age)
   //   val id = models.User.create(newUser)
     // Redirect(routes.Application.index)
      Ok("")
@@ -100,7 +100,7 @@ class Application extends Controller {
    /**
    * Using body parser to pares the form
    */
-val userPostWithErrors = Action(parse.form(userForm, 
+  val userPostWithErrors = Action(parse.form(userForm, 
     onErrors = (formWithErrors: Form[UserData]) => BadRequest(views.html.user(formWithErrors)))) 
     { implicit request =>
      val userData = request.body
